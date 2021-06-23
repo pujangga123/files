@@ -1,7 +1,3 @@
-# download file:
-# sound: https://github.com/pujangga123/files/tree/main/sound
-# image: https://github.com/pujangga123/files/tree/main/img
-
 # inisialisasi
 import pygame
 
@@ -9,19 +5,19 @@ pygame.init()
 screen = pygame.display.set_mode([1024,568])
 clock = pygame.time.Clock()
 
-ground = 435
+ground = 440
 y = ground
 x = 30
 speed = 10
-# https://github.com/pujangga123/files/blob/main/img/mario.png
-mario = pygame.image.load('mario.png')
+# https://github.com/pujangga123/files/blob/main/python/mario/img/mario.png
+mario = pygame.image.load('img/mario0.png')
 
-# https://github.com/pujangga123/files/blob/main/img/mario-level.png
-bg = pygame.image.load('mario-level.jpg')
+# https://github.com/pujangga123/files/blob/main/python/mario/img/mario-level.png
+bg = pygame.image.load('img/mario-level.jpg')
 jump = 0
 
-# https://github.com/pujangga123/files/blob/main/sound/mario-jump1.wav
-s_jump = pygame.mixer.Sound('mario-jump1.wav')
+# https://github.com/pujangga123/files/blob/main/python/mario/sound/mario-jump1.wav
+s_jump = pygame.mixer.Sound('sound/mario-jump1.wav')
 
 running = True
 while running:
