@@ -10,7 +10,7 @@ class World:
         self.img = pygame.image.load('img/w1-1.png')
         self.screen = screen
 
-    def forward(self):
+    def forward(self): # gerakan world
         self.pos -=10
         print(self.pos)
 

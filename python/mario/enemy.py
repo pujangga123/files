@@ -16,10 +16,10 @@ class Enemy:
         self.img = [pygame.image.load('img/gomba1.png'),
                     pygame.image.load('img/gomba2.png')]
 
-    def move(self):
+    def move(self):  # gerakan enemy
         self.rect.x -= 5
 
-    def draw(self):        
+    def draw(self):  # gambar enemy
         self.screen.blit(self.img[self.img_index],self.rect)
         self.img_index = 1 if self.img_index == 0 else 0
             

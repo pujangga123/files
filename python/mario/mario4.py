@@ -48,12 +48,11 @@ while running:
         if mario.condition != 'jump':
             mario.stand()
 
-    #x += speed
     mario.gravity()
     world.draw()
     mario.draw()
     if fire is not None:
-        if fire.x>700:
+        if fire.rect.x>700:  # 700: lebar layar
             fire = None
         else:
             fire.draw()

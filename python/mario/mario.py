@@ -27,7 +27,7 @@ class Mario:
         self.sound_jump = pygame.mixer.Sound('sound/mario-jump1.wav')
         self.screen = screen
 
-    def draw(self):
+    def draw(self): # gambar mario
         img = None
         if self.condition == 'stand':
             img = self.img_stand
@@ -43,14 +43,14 @@ class Mario:
         
         self.screen.blit(img,(self.x,self.y))
 
-    def move_left(self):
+    def move_left(self):  # gerakan ke kiri
         self.x -= self.speed
         self.direct = 'left'
         if self.condition != 'jump':
             self.condition = 'walk'
     
-    def move_right(self, move_char = True):
-        if move_char:
+    def move_right(self, move_char = True):  # bergerak ke kanan 
+        if move_char: # bergerak ke kanan tapi hanya jika move_char False
             self.x += self.speed
         self.direct = 'right'
         if self.condition != 'jump':
@@ -62,7 +62,7 @@ class Mario:
     def die(self):
         self.condition = 'die'
 
-    def gravity(self):
+    def gravity(self):  # gerakan jatuh
         if self.jump_height>0:
             self.y -= 15
             self.jump_height -= 1
@@ -73,7 +73,7 @@ class Mario:
             if self.condition ==  "jump":
                 self.condition = 'stand'        
 
-    def jump(self,height):
+    def jump(self,height): # lompat
         if self.condition!='jump':
             self.condition = 'jump'
             self.jump_height = height

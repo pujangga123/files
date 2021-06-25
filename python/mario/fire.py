@@ -16,7 +16,11 @@ class Fire:
         self.direct = mario.direct
 
     def draw(self):
-        self.rect.x += 20
+        if self.direct == 'right':
+            self.rect.x += 20
+        else:
+            self.rect.x -= 20
+
         self.img = pygame.transform.rotate(self.img,90)
         self.screen.blit(self.img, self.rect)
     

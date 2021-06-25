@@ -20,7 +20,6 @@ clock = pygame.time.Clock()
 
 mario = Mario(screen)
 
-#mario = pygame.transform.flip(mario, True, False)
 world = World(screen)
 fire = None
 gomba = Enemy(screen, 600,400)
@@ -54,18 +53,18 @@ while running:
     world.draw()
     mario.draw()
 
-    if gomba is not None:
+    if gomba is not None:  # jika gomba ada di layar, gerakan gomba
         gomba.move()
         gomba.draw()
         print(gomba.rect)
 
-    if fire is not None:
-        if gomba is not None and fire.hit(gomba.rect):
-            gomba = None
-            fire = None
+    if fire is not None: # jika ada api dilayar ...
+        if gomba is not None and fire.hit(gomba.rect): # check apakah ada gomba dan api mengenai gomba
+            gomba = None  # jika ya, hapus gomba
+            fire = None   #          hapus api
         else:
-            if fire.rect.x>700:
-                fire = None
+            if fire.rect.x>700 or fire.rect.x<0: # 700: lebar layar
+                fire = None  # jika api melewati layar, hapus api
             else:
                 fire.draw()
     

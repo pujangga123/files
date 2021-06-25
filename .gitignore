@@ -1,2 +1,4 @@
 python/*.png
 python/*.wav
+*.pyc
+python/mario/__pycache__/*.pyc
