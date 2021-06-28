@@ -39,13 +39,14 @@ while running:
             running = False
 
     keys = pygame.key.get_pressed()
-    if keys[pygame.K_LEFT]:
-        mario.move_left()
-    elif keys[pygame.K_RIGHT]:
-        mario.move_right(True)
-    else:
-        if mario.condition != 'jump':
-            mario.stand()
+    if mario.condition!='die':
+        if keys[pygame.K_LEFT]:
+            mario.move_left()
+        elif keys[pygame.K_RIGHT]:
+            mario.move_right(True)
+        else:
+            if mario.condition != 'jump':
+                mario.stand()
 
     mario.gravity()
     world.draw()
@@ -54,10 +55,15 @@ while running:
     if gomba is not None:  # jika gomba ada di layar, gerakan gomba
         gomba.move()
         gomba.draw()
+        mariorect = pygame.Rect(mario.x, mario.y, 32, 32) # 32 x 32 adalah ukuran gambar mario
+        if gomba.hit(mariorect):
+            mario.die()
 
     if fire is not None: # jika ada api dilayar ...
         if gomba is not None and fire.hit(gomba.rect): # check apakah ada gomba dan api mengenai gomba
-            gomba = None  # jika ya, hapus gomba
+            #gomba = None  # jika ya, hapus gomba
+            fire.hit_enemy()
+            gomba = Enemy(screen, 650,400)   # jika ya, reset gomba
             fire = None   #          hapus api
         else:
             if fire.rect.x>700 or fire.rect.x<0: # 700: lebar layar

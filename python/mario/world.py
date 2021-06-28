@@ -12,8 +12,6 @@ class World:
 
     def forward(self): # gerakan world
         self.pos -=10
-        print(self.pos)
-
 
     def draw(self):
         self.screen.blit(self.img,(self.pos,0))

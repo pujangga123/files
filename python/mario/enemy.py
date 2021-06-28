@@ -23,3 +23,5 @@ class Enemy:
         self.screen.blit(self.img[self.img_index],self.rect)
         self.img_index = 1 if self.img_index == 0 else 0
             
+    def hit(self, charrect):
+        return self.rect.colliderect(charrect)

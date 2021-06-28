@@ -5,7 +5,7 @@ pygame.init()
 screen = pygame.display.set_mode([1024,568])
 clock = pygame.time.Clock()
 
-ground = 440
+ground = 450
 y = ground
 x = 30
 speed = 10

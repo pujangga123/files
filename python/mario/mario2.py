@@ -35,7 +35,6 @@ while running:
     else:
         mario.stand()
 
-    #x += speed
     mario.gravity()
     screen.blit(bg,(0,0))
     mario.draw()

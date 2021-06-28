@@ -15,7 +15,6 @@ clock = pygame.time.Clock()
 
 mario = Mario(screen)
 
-#mario = pygame.transform.flip(mario, True, False)
 world = World(screen)
 
 running = True
@@ -43,7 +42,6 @@ while running:
         if mario.condition != 'jump':
             mario.stand()
 
-    #x += speed
     mario.gravity()
     world.draw()
     mario.draw()

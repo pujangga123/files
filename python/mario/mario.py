@@ -12,6 +12,7 @@ class Mario:
     img_jump = None
     img_die = None
     sound_jump = None
+    sound_die = None
     screen = None   
     direct = 'right'  # left / right
     condition = 'stand' # stand/walk/jump
@@ -23,8 +24,9 @@ class Mario:
                          pygame.image.load('img/mario3.png'),
         ]
         self.img_jump = pygame.image.load('img/mario4.png')
-        self.img_die = pygame.image.load('img/mario5.png')
+        self.img_die = pygame.image.load('img/mario6.png')
         self.sound_jump = pygame.mixer.Sound('sound/mario-jump1.wav')
+        self.sound_die = pygame.mixer.Sound('sound/mario-die.wav')
         self.screen = screen
 
     def draw(self): # gambar mario
@@ -36,9 +38,9 @@ class Mario:
             self.img_walk_index = self.img_walk_index+1 if self.img_walk_index<2 else 0            
         if self.condition == 'jump':
             img = self.img_jump
-        if self.condition == 'dia':
+        if self.condition == 'die':
             img = self.img_die
-        if self.direct == 'left':
+        if self.direct == 'left': #kalau mario sedang menghadap ke kiri, FLIP gambar
             img = pygame.transform.flip(img,True,False)
         
         self.screen.blit(img,(self.x,self.y))
@@ -60,7 +62,9 @@ class Mario:
         self.condition = 'stand'
     
     def die(self):
-        self.condition = 'die'
+        if self.condition!= 'die':
+            self.condition = 'die'
+            self.sound_die.play()
 
     def gravity(self):  # gerakan jatuh
         if self.jump_height>0:
