@@ -51,17 +51,17 @@ while running:
     world.draw()
     mario.draw()
 
-    if gomba is not None:  # jika gomba ada di layar, gerakan gomba
+    if gomba is not None:  
         gomba.move()
         gomba.draw()
 
-    if fire is not None: # jika ada api dilayar ...
-        if gomba is not None and fire.hit(gomba.rect): # check apakah ada gomba dan api mengenai gomba
-            gomba = None  # jika ya, hapus gomba
-            fire = None   #          hapus api
+    if fire is not None: 
+        if gomba is not None and fire.hit(gomba.rect): 
+            gomba = None
+            fire = None
         else:
-            if fire.rect.x>700 or fire.rect.x<0: # 700: lebar layar
-                fire = None  # jika api melewati layar, hapus api
+            if fire.rect.x>700 or fire.rect.x<0:
+                fire = None  
             else:
                 fire.draw()
     

@@ -21,7 +21,7 @@ clock = pygame.time.Clock()
 mario = Mario(screen)
 world = World(screen)
 fire = None
-gomba = Enemy(screen, 650,400)
+gomba = Enemy(screen, 600,400)
 
 running = True
 while running:
@@ -33,6 +33,7 @@ while running:
                 mario.jump(11)
             if event.key == pygame.K_x:
                 fire = Fire(screen,mario)
+
         if event.type == pygame.QUIT:
             running = False
 
@@ -54,15 +55,14 @@ while running:
         gomba.move()
         gomba.draw()
         mariorect = pygame.Rect(mario.x, mario.y, 32, 32) # 32 x 32 adalah ukuran gambar mario
-        if gomba.hit(mariorect):
+        if gomba.hit(mariorect):  # jika gomba mengenai mario, maka mario.die()
             mario.die()
 
     if fire is not None: # jika ada api dilayar ...
         if gomba is not None and fire.hit(gomba.rect): # check apakah ada gomba dan api mengenai gomba
-            #gomba = None                    # hapus gomba
             fire.hit_enemy()
-            gomba = Enemy(screen, 650,400)   # reset gomba
-            fire = None                      # hapus api
+            gomba = Enemy(screen, 650,400)   # jika ya, reset gomba
+            fire = None                      #          hapus api
         else:
             if fire.rect.x>700 or fire.rect.x<0: # 700: lebar layar
                 fire = None  # jika api melewati layar, hapus api
@@ -73,3 +73,4 @@ while running:
     clock.tick(18)
 
 pygame.quit()
+
