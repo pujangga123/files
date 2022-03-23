@@ -1,39 +1,34 @@
 # contoh game Tamagoci
-# pada program ini karakter tamagoci menggunakan class Puppy
+# pada program ini karakter tamagoci menggunakan class Cat
 # yang adalah turunan dari class Tamago
 import os
-from puppy import Puppy
+from cat import Cat
 
 def cetakmenu():
     print("="*40)
     print("1. Makan")
     print("2. Bermain")
-    print("3. Berlari")
-    print("4. Skip day")
+    print("3. Skip day")
     print("0. QUIT")
 
 # PROGRAM UTAMA
-nino = Puppy("Nino")
+neko = Cat("Neko")
 opsi = ""
 
 while True:
-    nino.draw()
+    neko.draw()
     cetakmenu()
     opsi = input("Opsi (1-3)?")
     os.system("cls")    
 
     if opsi == "1":
-        nino.eat()
+        neko.eat()
 
     if opsi == "2":
-        nino.play()
+        neko.play()
 
     if opsi == "3":
-        jarak = int(input("Jarak?"))
-        nino.run(jarak)
-
-    if opsi == "4":
-        nino.skipday()
+        neko.skipday()
 
     if opsi == "0":
         break

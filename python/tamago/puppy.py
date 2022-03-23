@@ -1,3 +1,6 @@
+# class Puppy
+# turunan dari Tamago, berarti mewarisi semua atribut dan fungsi dari Tamago
+# dengan tambahan method play dan run
 from tamago import Tamago
 
 class Puppy(Tamago):    

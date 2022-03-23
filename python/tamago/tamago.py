@@ -1,3 +1,5 @@
+# class Tamago
+# Tamago adalah class dasar untuk karakter game Tamagoci
 class Tamago:
     name = ""
     life = 100

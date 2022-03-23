@@ -1,4 +1,6 @@
-# contoh class Tamago + program dalam 1 script yang sama
+# contoh game Tamago
+# Pada program ini class dan digabung pada class utama
+# check tamago2.py & tamago.py untuk contoh dimana class dan program utama di pisah
 import os
 class Tamago:
     name = ""

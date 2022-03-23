@@ -1,4 +1,5 @@
-# contoh menggunakan class Tamago di modul terpisah
+# contoh game Tamagoci
+# class dan program utama dipisah menjadi 2 file
 
 import os
 from tamago import Tamago
@@ -14,10 +15,11 @@ beno = Tamago("Beno")
 opsi = ""
 
 while True:
-    os.system("cls")    
     beno.draw()
     cetakmenu()
-    opsi = input("Opsi (1-3)?")
+    opsi = input("Opsi (1-2)?")
+
+    os.system("cls")      
 
     if opsi == "1":
         beno.eat()
@@ -27,8 +29,5 @@ while True:
 
     if opsi == "0":
         break
-
-    input()
-    
 
 print("GAME OVER")
