@@ -6,6 +6,8 @@ from tamago import Tamago
 class Puppy(Tamago):    
     happy = 100
 
+    # khusus pada deklarasi method pada class,
+    #   parameter pertama selalu self, tapi ketika dipanggil, parameter ini dianggap kosong
     def play(self):
         self.life -=2
         self.happy += 20
