@@ -25,7 +25,11 @@ while running: # selama running bernilai True, ulangi proses
     if keys[pygame.K_LEFT]:
         p1.move_left()
     if keys[pygame.K_RIGHT]:
-        p1.move_right()    
+        p1.move_right()
+    if keys[pygame.K_UP]:
+        p1.move_up()
+    if keys[pygame.K_DOWN]:
+        p1.move_down()
 
     # isi screen dengan kode warna RGB 255,255,255 (warna putih)
     screen.fill((0,0,0))    
