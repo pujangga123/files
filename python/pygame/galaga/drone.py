@@ -5,12 +5,12 @@ class Drone:  # nama class
         self.img_drone = pygame.image.load("drone1.png")
         self.x = 0
         self.y = 0
-        self.speed = 10
+        self.speed = 7
         self.screen = screen
 
     def move(self):
         self.x += self.speed
-        if self.x<0 or self.x>500:
+        if self.x<10 or self.x>470:
             self.bounce()
 
     def bounce(self):

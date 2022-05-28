@@ -19,6 +19,7 @@ drone1.x = 30
 drone1.y = 10
 
 img_stage = pygame.image.load('stage.png')
+sound_missile = pygame.mixer.Sound('shot.wav')
 
 running = True
 while running: # selama running bernilai True, ulangi proses
@@ -35,6 +36,7 @@ while running: # selama running bernilai True, ulangi proses
         p1.move_right()   
     if keys[pygame.K_SPACE]:
         if missile1.launched == False:
+            sound_missile.play()
             missile1.launch(p1.x+16, p1.y)
 
     # menggambar latar
