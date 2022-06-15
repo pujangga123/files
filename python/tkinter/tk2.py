@@ -16,6 +16,10 @@ def list_reload():
     for row in database:
         list1.insert(END,row)
 
+def update():
+    
+    list_reload()
+
 win = Tk()
 
 
