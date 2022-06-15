@@ -21,7 +21,7 @@ def update():
     list_reload()
 
 win = Tk()
-
+win.geometry("400x500")
 
 list1 = Listbox(win)
 list1.pack()
