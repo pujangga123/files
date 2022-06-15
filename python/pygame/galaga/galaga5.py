@@ -46,6 +46,7 @@ while running: # selama running bernilai True, ulangi proses
         missile1.move()
         missile1.draw()   
 
+    # periksa apakah missile bertubrukan dengan drone
     if missile1.get_rect().colliderect(drone1.get_rect()):
         drone1.destroy()
         missile1.gone()

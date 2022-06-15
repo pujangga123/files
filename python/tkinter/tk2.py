@@ -1,26 +1,35 @@
 from tkinter import *
 
-def salam_klik():
-    text_pesan = "Halo " + nama.get()
-    pesan.config(text=text_pesan)
+database = ["PHP","C++","Pascal","C#","Python","Java"]
+
+def list_clear():
+    list1.delete(0,list1.size())
+
+def list_add():
+    list1.insert(END,"Helo")
+
+def list_del():
+    list1.delete(list1.curselection()[0])
+
+def list_reload():
+    list_clear()
+    for row in database:
+        list1.insert(END,row)
+
+def update():
+    
+    list_reload()
 
 win = Tk()
 
-win.geometry("300x200") 
-win.title("Form Utama") 
 
-Label(win,text="Nama").pack()
-nama = Entry(win)
-nama.pack()
+list1 = Listbox(win)
+list1.pack()
 
-Label(win,text="Umur").pack()
-umur = Entry(win)
-umur.pack()
+Button(win,text="Clear", command=list_clear).pack()
+Button(win,text="Add", command=list_add).pack()
+Button(win,text="Delete", command=list_del).pack()
 
-tombol = Button(win, text="Salam", command=salam_klik)
-tombol.pack()
-
-pesan = Label(win)
-pesan.pack()
+list_reload()
 
 win.mainloop()

@@ -1,3 +1,4 @@
+# contoh form tkinter #1
 from tkinter import *
 
 def salam_klik():
