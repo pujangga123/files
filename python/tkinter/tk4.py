@@ -1,5 +1,6 @@
 from tkinter import *
 from tkinter import messagebox
+from mahasiswa import Mahasiswa
 
 # dictionary 'database' untuk mensimulasikan database
 database = {}
@@ -10,15 +11,13 @@ def list_clear():
 
 # menambahkan/edit data di database
 def db_add():
-    var_nim = nim.get()    # .get() --> membaca text yang diinput user pada textbox
-    var_nama = nama.get()
-    var_nilai = nilai.get()
-
     # memasukan/update data dengan key var_nim
-    database[var_nim] = {
-        "nama":var_nama,
-        "nilai":var_nilai
-    }
+    m = Mahasiswa(database)
+    m.nim = nim.get()
+    m.nama = nama.get()
+    m.nilai = nilai.get()
+    m.update()
+    
     # menampilkan messagebox
     messagebox.showinfo("Info","Data berhasil ditambahkan")
     list_reload() # update tampilan list1
@@ -27,22 +26,25 @@ def db_add():
 def list_doubleclick(event):
     var_nim = list1.get(list1.curselection()[0]) # membaca NIM yang di klik user pada list1
 
-    var_nama = database[var_nim]['nama'] # ambil 'nama' untuk NIM yang sesuai var_nim
-    var_nilai = database[var_nim]['nilai']
+    m = Mahasiswa(database)
+    m.load(var_nim)
 
     nim.delete(0,END) # hapus text NIM pada textbox
-    nim.insert(0,var_nim)  # tampilkan NIM (var_nim) pada textbox
+    nim.insert(0,m.nim)  # tampilkan NIM (var_nim) pada textbox
 
     nama.delete(0,END)
-    nama.insert(0,var_nama)
+    nama.insert(0,m.nama)
 
     nilai.delete(0,END)
-    nilai.insert(0,var_nilai)
+    nilai.insert(0,m.nilai)
 
 # hapus entry dari database
 def db_del():
-    var_nim = list1.get(list1.curselection()[0])  # ambil NIM yang dipilih user pada list1
-    del database[var_nim]  # hapus data sesuai NIM (var_nim) dari database
+    var_nim = list1.get(list1.curselection()[0]) # membaca NIM yang di klik user pada list1
+    
+    m = Mahasiswa(database)
+    m.delete(var_nim)
+
     messagebox.showinfo("Info","Data berhasil dihapus")  # tampilkan messagebox
     list_reload()  # update tampilan list1
 
